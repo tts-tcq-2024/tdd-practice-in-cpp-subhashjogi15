@@ -49,7 +49,7 @@ std::vector<int> parseNumbers(const std::string& numbers, const std::string& del
 		handleParsedNumbers(item, negativeNumber, result);
 	}
 	if (!negativeNumber.empty()) {
-		throw std::invalid_argument("negatives not allowed: " + negativeNumber);
+		throw std::std::runtime_error;
 	}
 	return result;
 }
