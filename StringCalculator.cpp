@@ -49,7 +49,7 @@ std::vector<int> parseNumbers(const std::string& numbers, const std::string& del
 		handleParsedNumbers(item, negativeNumber, result);
 	}
 	if (!negativeNumber.empty()) {
-		throw std::std::runtime_error;
+		throw std::runtime_error;
 	}
 	return result;
 }
