@@ -1,24 +1,5 @@
 #include "StringCalculator.h"
 
-int StringCalculator::add(const std::string& numbers) {
-	if (numbers.empty()) {
-	    return 0;
-	}
-  	std::string delimiter = ",";
-	std::string numbersWithoutDelimiter = numbers;
-  
-  	if (hasCustomDelimiter(numbers)) {
-      	delimiter = extractDelimiter(numbers); // Extract custom delimiter
-      	numbersWithoutDelimiter = extractNumbers(numbers);
-  	}
-  
-	  // Normalize the numbers string by replacing new lines with the delimiter
-	  std::string normalizedNumbers = normalizeNumbers(numbersWithoutDelimiter, delimiter);
-	  
-	  std::vector<int> nums = parseNumbers(normalizedNumbers, delimiter);
-	  return calculateSum(nums);
-}
-
 bool hasCustomDelimiter(const std::string& numbers) {
     return numbers.substr(0, 2) == "//";
 }
@@ -79,4 +60,23 @@ int calculateSum(const std::vector<int>& nums) {
 		sum += num;
 	}
 	return sum;
+}
+
+int StringCalculator::add(const std::string& numbers) {
+	if (numbers.empty()) {
+	    return 0;
+	}
+  	std::string delimiter = ",";
+	std::string numbersWithoutDelimiter = numbers;
+  
+  	if (hasCustomDelimiter(numbers)) {
+      	delimiter = extractDelimiter(numbers); // Extract custom delimiter
+      	numbersWithoutDelimiter = extractNumbers(numbers);
+  	}
+  
+	  // Normalize the numbers string by replacing new lines with the delimiter
+	  std::string normalizedNumbers = normalizeNumbers(numbersWithoutDelimiter, delimiter);
+	  
+	  std::vector<int> nums = parseNumbers(normalizedNumbers, delimiter);
+	  return calculateSum(nums);
 }
