@@ -1,6 +1,6 @@
 #ifndef STRINGCALCULATOR_H
 #define STRINGCALCULATOR_H
-
+ 
 #include <iostream>
 #include <sstream>
 #include <vector>
